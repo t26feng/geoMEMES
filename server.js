@@ -1,10 +1,17 @@
-const express = require('express');
+const express = require('express')
+const path = require('path')
+const index = require('./routes/index.js')
 
-const indexRoute = require('./routes/indexRoute.js');
+// create app.. may need to add configuration later ie: module.exports = ({ config, stats, log, grpcClient }, cb) => {..}
+const app = express()
 
-const app = express();
+// express settings for SSR
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'jsx')
+app.engine('jsx', require('express-react-views').createEngine())
+
 // Get requests
-app.get('/', indexRoute.get);
+app.get('/', index.get)
 
 // Start server
-app.listen(3000, () => {});
+app.listen(3000, () => {})

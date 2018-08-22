@@ -4,6 +4,9 @@
     "browser": true,
     "node": true
   },
-  "extends": "airbnb",
-  "parser": "babel-eslint"
+  "extends": "standard",
+  "parser": "babel-eslint",
+  "rules":{
+        "no-tabs": 0
+    }
 }
